@@ -1,1 +1,11 @@
-<p>slider-steps works!</p>
+<mat-stepper #stepper linear [contentEditable]="stepsArray.length && stepsArray.length !== 1" (selectionChange)="onStepChange($event.selectedIndex)">
+    @for (step of steps; track step) {
+      <mat-step>
+          @if (stepsArray.length) {
+            <form>
+              <ng-template matStepLabel>{{step}}</ng-template>
+            </form>
+          }
+      </mat-step>
+    }
+</mat-stepper>

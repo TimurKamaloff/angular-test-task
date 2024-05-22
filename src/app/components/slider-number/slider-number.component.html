@@ -1,1 +1,10 @@
-<p>slider-number works!</p>
+<mat-slider 
+    [min]="min" 
+    [max]="max" 
+    [step]="step" 
+    [showTickMarks]="showTickMarks" 
+    [discrete]="discrete"
+    [displayWith]="displayWithFn"
+    [disabled]="disabled">
+    <input matSliderThumb (valueChange)="onChange($event)">
+</mat-slider>

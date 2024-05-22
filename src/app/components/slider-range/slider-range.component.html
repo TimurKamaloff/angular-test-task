@@ -1,1 +1,11 @@
-<p>slider-range works!</p>
+<mat-slider 
+    [min]="min" 
+    [max]="max" 
+    [step]="step" 
+    [showTickMarks]="showTickMarks" 
+    [discrete]="discrete"
+    [displayWith]="displayWithFn"
+    [disabled]="disabled">
+    <input [value]="min" matSliderStartThumb (valueChange)="inputChange($event, SLIDER_RANGE_FIELDS.From)">
+    <input [value]="max" matSliderEndThumb (valueChange)="inputChange($event, SLIDER_RANGE_FIELDS.To)">
+</mat-slider>  

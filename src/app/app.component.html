@@ -1,3 +1,20 @@
-<app-slider-number></app-slider-number>
-<app-slider-range></app-slider-range>
-<app-slider-steps></app-slider-steps>
+<form [formGroup]="form" class="form">
+    <div>
+        <app-slider-number [(ngModel)]="sliderNumberValue" [ngModelOptions]="{standalone: true}"></app-slider-number>
+        ngModel sliderNumberValue: {{sliderNumberValue}}
+        <app-slider-number formControlName="sliderNumberValueControl" [max]="100" [step]=".01"></app-slider-number>
+        formControl sliderNumberValue: {{form.controls['sliderNumberValueControl'].value}}
+        
+    </div>
+    <div>
+        <app-slider-range [(ngModel)]="sliderRangeValue" [ngModelOptions]="{standalone: true}"></app-slider-range>
+        ngModel sliderRangeValue: {{sliderRangeValue | json}}
+        <app-slider-range formControlName="sliderRangeValueControl"></app-slider-range>
+        formControl sliderRangeValueControl: {{form.controls['sliderRangeValueControl'].value | json}}
+    </div>
+    <div>
+        <app-slider-steps [stepsArray]="[1,2,3,4,5,6,7,8]" formControlName="sliderStepValueControl"></app-slider-steps>
+        formControl sliderStepValueControl: {{form.controls['sliderStepValueControl'].value | json}}
+    </div>
+</form>
+ 
